@@ -1,0 +1,49 @@
+<div class="bottom-container" id="contacts_content">
+  <div class="container">
+    <h1 class="content-title text-center">Registration</h1><br>
+    <div class="container-fluid col-xs-12">
+      <div class="col-sm-6 "></div>
+      <div class="col-sm-6 ">
+        <form [formGroup]="angForm" novalidate>
+          <div class="form-group">
+            <label class="col-md-4">User Name</label>
+            <input type="text" class="form-control" formControlName="name" #name />
+          </div>
+          <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['name'].errors.required">User Name is required.</div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4">Phone Number</label>
+            <input type="text" class="form-control" formControlName="phone" #phone />
+          </div>
+          <div *ngIf="angForm.controls['phone'].invalid && (angForm.controls['phone'].dirty || angForm.controls['phone'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['phone'].errors.required">Phone Number is required.</div>
+            <div *ngIf="angForm.controls['phone'].errors.pattern">Phone Number must be vaild number.</div>
+            <div *ngIf="angForm.controls['phone'].errors.minlength">Phone Number must be at least 10 digits.</div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4">Email </label>
+            <input type="text" class="form-control" formControlName="email" #email />
+          </div>
+          <div *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['email'].errors.required">Email address is required.</div>
+            <div *ngIf="angForm.controls['email']">Email must be a valid email address</div>
+
+          </div>
+          <div class="form-group">
+            <label class="col-md-4">Password</label>
+            <input type="password" class="form-control" formControlName="password" #password />
+          </div>
+          <div *ngIf="angForm.controls['password'].invalid && (angForm.controls['password'].dirty || angForm.controls['password'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['password'].errors.required">Password is required.</div>
+            <div *ngIf="angForm.controls['password'].errors.minlength">Password must be at least 6 characters.</div>
+          </div>
+
+          <div class="form-group">
+            <button (click) = "addUser(name.value, phone.value, email.value, password.value)" type="submit" class="btn btn-primary" [disabled]="angForm.pristine || angForm.invalid" >Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
