@@ -1,0 +1,9 @@
+# Angular 8 Application with PHP Back-End Example
+
+
+Before started the angular project you must have installed Angular 8 in your system. If you dont have installed angular than you can install using below command:
+npm install -g @angular/cli
+
+I have uploaded all the source code without the node_modules folder. You need this folder to run angular project. Run below command for get node modules:
+npm install 
+it will install all the dependencies for your source code.
